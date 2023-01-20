@@ -1,25 +1,33 @@
-import { Checkbox } from "@fluentui/react";
-import { useRefinementList } from "react-instantsearch-hooks-web";
+import { Checkbox } from "@fluentui/react-components";
+import { useRefinementList, UseRefinementListProps } from "react-instantsearch-hooks-web";
 
 type FacetProps = {
   attribute: string;
   title: string;
 };
-const Facet = (props: FacetProps) => {
-  const { items, refine } = useRefinementList({ ...props });
+
+export type RefinementListProps = React.ComponentProps<"div"> &
+  UseRefinementListProps & {
+    facet: FacetProps;
+  };
+
+const Facet = (props: RefinementListProps) => {
+  const sortBy = props.sortBy || ["count", "name:asc"];
+
+  const { items: facets, refine } = useRefinementList({ ...props, sortBy });
   const title = props.attribute.toUpperCase();
 
   const renderCheckbox = () => {
-    return items.map((item) => (
+    return facets.map(facet => (
       <Checkbox
-        id={item.value}
-        key={item.value}
-        label={`${item.label} (${item.count})`}
-        checked={item.isRefined}
+        id={facet.value}
+        key={facet.value}
+        label={`${facet.label} (${facet.count})`}
+        checked={facet.isRefined}
         onChange={() => {
-          refine(item.value);
+          refine(facet.value);
         }}
-        styles={{ root: { marginBottom: "2px" } }}
+        root={{ style: { display: "flex" } }}
       />
     ));
   };
@@ -27,7 +35,7 @@ const Facet = (props: FacetProps) => {
   return (
     <>
       <h3>{title}</h3>
-      {items.length > 0 && renderCheckbox()}
+      {facets.length > 0 && renderCheckbox()}
     </>
   );
 };

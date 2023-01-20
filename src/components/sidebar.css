@@ -3,5 +3,6 @@
   text-align: left;
   padding: 10px;
   min-width: 150px;
+  flex-direction: column;
 }
   
