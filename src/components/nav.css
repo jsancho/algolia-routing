@@ -3,15 +3,14 @@
     width: 40%;
   }
   
-.links-container span {
-  text-decoration: underline;
+.links-container a {
   color: #000;
   font-size: 15px;
   border: 1px solid;
   border-radius: 5px;
   padding: 5px 10px;
   margin-right: 8px;
-  
+  text-transform: capitalize;
 }
 
 .links-container span:hover {
