@@ -12,7 +12,13 @@ function App() {
       <Routes>
         <Route path="/" element={<Navigate to={sections[0]} />} />
         {sections.map(section => {
-          return <Route path={`/${section}`} element={<AlgoliaContainer index={section} />} />;
+          return (
+            <Route
+              key={`route-${section}`}
+              path={`/${section}`}
+              element={<AlgoliaContainer index={section} />}
+            />
+          );
         })}
       </Routes>
     </div>
