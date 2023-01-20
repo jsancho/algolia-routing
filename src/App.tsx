@@ -5,7 +5,7 @@ import "./App.css";
 
 function App() {
   return (
-    <div className="App">
+    <div className="app">
       <NavMenu sections={["stays", "workjobs"]} />
       <Routes>
         <Route path="/" element={<Navigate to="stays" />} />
