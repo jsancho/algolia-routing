@@ -1,5 +1,6 @@
 import { DynamicWidgets, SortBy } from "react-instantsearch-hooks-web";
 import Facet from "./Facet";
+import "./sidebar.css";
 
 interface IProps {
   section: string;

@@ -2,19 +2,16 @@
   display: flex;
   flex-direction: row;
 }
-  
-.aside {
-  border: 1px solid;
-  text-align: left;
-  padding: 10px;
-  min-width: 100px;
-}
 
 .hit {
   border: 1px solid;
   margin-bottom: 5px;
   margin-left: 5px;
   padding: 10px;
+}
+
+.hits-container {
+  min-width: 320px;
 }
 
 .hit:first-child {
