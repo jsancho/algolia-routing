@@ -1,14 +1,10 @@
 import { Checkbox } from "@fluentui/react-components";
 import { useRefinementList, UseRefinementListProps } from "react-instantsearch-hooks-web";
 
-type FacetProps = {
-  attribute: string;
-  title: string;
-};
-
 export type RefinementListProps = React.ComponentProps<"div"> &
   UseRefinementListProps & {
-    facet: FacetProps;
+    attribute: string;
+    title: string;
   };
 
 const Facet = (props: RefinementListProps) => {
