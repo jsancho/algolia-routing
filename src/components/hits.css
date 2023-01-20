@@ -10,10 +10,6 @@
   min-width: 100px;
 }
 
-.hits-container {
-  /* padding: 10px; */
-}
-
 .hit {
   border: 1px solid;
   margin-bottom: 5px;
