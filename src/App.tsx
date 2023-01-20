@@ -1,23 +1,30 @@
+import { ClickyCard } from "./ClickyCard";
+import { Nav } from "./components/Nav";
+import algoliasearch from "algoliasearch";
+import { InstantSearch } from "react-instantsearch-hooks-web";
 import { useState } from "react";
+import { Hits } from "./components/Hits";
 import "./App.css";
-import { Button, Divider } from "@fluentui/react-components";
-import { ArrowStepIn24Regular } from "@fluentui/react-icons";
+
+const searchClient = algoliasearch(
+  "14LH54VIYV",
+  "20ec51f3a8dd72e5d6a6e0e79278dbde"
+);
+
+const initialIndexName = "stays";
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [indexName, setIndexName] = useState(initialIndexName);
 
   return (
     <div className="App">
-      <h1>Algolia Demo</h1>
-      <div className="card">
-        <Button
-          appearance="primary"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          <ArrowStepIn24Regular />
-          Clicked {count} times
-        </Button>
-      </div>
+      <Nav setIndexName={setIndexName} />
+      <InstantSearch indexName={initialIndexName} searchClient={searchClient}>
+        {/* <Configure index={indexName} /> */}
+        <Hits section={indexName} />
+      </InstantSearch>
+
+      <ClickyCard />
     </div>
   );
 }

@@ -9,10 +9,14 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@fluentui/react": "^8.104.6",
     "@fluentui/react-components": "^9.9.1",
     "@fluentui/react-icons": "^2.0.191",
+    "algoliasearch": "^4.14.3",
+    "instantsearch.js": "^4.49.4",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-instantsearch-hooks-web": "^6.38.3"
   },
   "devDependencies": {
     "@types/react": "^18.0.26",

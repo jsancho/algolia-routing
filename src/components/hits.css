@@ -1,0 +1,37 @@
+.header {
+ display: flex;
+ flex-direction: row;
+ justify-content: space-between;
+ align-items: center;
+}
+
+.main {
+  display: flex;
+  flex-direction: row;
+}
+  
+.aside {
+  border: 1px solid;
+  text-align: left;
+  padding: 10px;
+  min-width: 100px;
+}
+
+.hits-container {
+  /* padding: 10px; */
+}
+
+.hit {
+  border: 1px solid;
+  margin-bottom: 5px;
+  margin-left: 5px;
+  padding: 10px;
+}
+
+.hit:first-child {
+  margin-top: 0;
+}
+
+.ais-SortBy {
+  margin: 8px 0 8px;
+}
