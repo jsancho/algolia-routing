@@ -1,25 +1,11 @@
-import { useState } from "react";
 import { useSearchBox } from "react-instantsearch-hooks-web";
-import {
-  ISearchBoxStyles,
-  SearchBox,
-  Spinner,
-  SpinnerSize,
-} from "@fluentui/react";
-
-const searchBoxStyles: Partial<ISearchBoxStyles> = {
-  root: { width: "auto" },
-};
+import { SearchBox, Spinner, SpinnerSize } from "@fluentui/react";
 
 const SearchBar = () => {
-  const { clear, refine, isSearchStalled } = useSearchBox();
-
-  const [currentSearch, setCurrentQuery] = useState("");
+  const { clear, refine, query, isSearchStalled } = useSearchBox();
 
   const setSearchAndSave = (text?: string) => {
     const searchTerm = (text && text.trim()) || "";
-
-    setCurrentQuery(searchTerm);
     refine(searchTerm);
   };
 
@@ -40,11 +26,10 @@ const SearchBar = () => {
     <>
       <SearchBox
         placeholder="search here"
-        value={currentSearch}
+        value={query}
         onClear={onClear}
         onSearch={onSearch}
         onChange={(_e, value) => onChange(value)}
-        // styles={searchBoxStyles}
       />
       {isSearchStalled && (
         <Spinner
