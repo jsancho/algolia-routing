@@ -1,5 +1,5 @@
 import { DynamicWidgets } from "react-instantsearch-hooks-web";
-import { SortByDropDown } from "../sortBy/SortByDropDown";
+import { SortByDropDown } from "components/sortBy/SortByDropDown";
 import Facet from "./Facet";
 import "./filtersSideBar.css";
 
