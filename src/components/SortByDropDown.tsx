@@ -35,7 +35,7 @@ export const SortByDropDown = ({ index }: IProps) => {
 
   return (
     <Dropdown
-      defaultSelectedOptions={[sortBy || getLabelForValue(index)]}
+      defaultSelectedOptions={[getLabelForValue(sortBy || index)]}
       root={{ style: { minWidth: "150px" } }}
       onOptionSelect={(_event, data) => changeSort(data.optionText)}
     >
