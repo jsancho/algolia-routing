@@ -1,5 +1,5 @@
 import { Navigate, Route, Routes } from "react-router-dom";
-import { NavMenu } from "./components/layout/NavMenu";
+import { NavMenu } from "components/layout/NavMenu";
 import { AlgoliaContainer } from "./AlgoliaContainer";
 import "./navigation.css";
 

@@ -2,8 +2,8 @@ import { useState } from "react";
 import { useHits } from "react-instantsearch-hooks-web";
 import { Header } from "./Header";
 import SearchBar from "./SearchBar";
-import { FiltersToggle } from "../filters/FiltersToggle";
-import { FiltersSideBar } from "../filters/FiltersSideBar";
+import { FiltersToggle } from "components/filters/FiltersToggle";
+import { FiltersSideBar } from "components/filters/FiltersSideBar";
 import "./layout.css";
 
 interface IProps {

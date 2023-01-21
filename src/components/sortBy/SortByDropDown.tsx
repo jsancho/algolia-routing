@@ -1,6 +1,6 @@
 import { Dropdown, Option } from "@fluentui/react-components/unstable";
 import { useInstantSearch } from "react-instantsearch-hooks-web";
-import { getSortItems } from "../../data/getSortItems";
+import { getSortItems } from "data/getSortItems";
 interface IProps {
   index: string;
 }
