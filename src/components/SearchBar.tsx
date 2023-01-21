@@ -1,12 +1,7 @@
 import { useSearchBox } from "react-instantsearch-hooks-web";
 import { SearchBox } from "@fluentui/react";
-import { ReactNode } from "react";
 
-interface IProps {
-  children?: ReactNode;
-}
-
-const SearchBar = ({ children }: IProps) => {
+const SearchBar = () => {
   const { clear, refine, query } = useSearchBox();
 
   const setSearchAndSave = (text?: string) => {
