@@ -11,6 +11,7 @@ export const SideBar = ({ index }: IProps) => {
   return (
     <aside className="aside">
       <SortByDropDown index={index} />
+      {/* TODO: Add clear refinements button */}
       <DynamicWidgets>
         <Facet title="Status" attribute={"status"} />
         <Facet title="Model" attribute={"model"} />

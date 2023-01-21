@@ -1,19 +1,20 @@
-import SearchBar from "./SearchBar";
+import { ReactNode } from "react";
 import "./header.css";
 
 interface IProps {
   section: string;
   hitCount: number;
+  children?: ReactNode;
 }
 
 export const Header = (props: IProps) => {
-  const { section, hitCount } = props;
+  const { section, hitCount, children } = props;
   return (
     <section className="header">
       <h2>
         {section} ({hitCount})
       </h2>
-      <SearchBar />
+      <div>{children}</div>
     </section>
   );
 };

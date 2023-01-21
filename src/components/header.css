@@ -4,4 +4,12 @@
   justify-content: space-between;
   align-items: center;
 }
+
+.header h2 {
+  text-transform: capitalize;
+}
+
+.header div {
+  display: flex;
+}
    

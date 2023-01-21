@@ -1,8 +1,13 @@
 import { useSearchBox } from "react-instantsearch-hooks-web";
-import { SearchBox, Spinner, SpinnerSize } from "@fluentui/react";
+import { SearchBox } from "@fluentui/react";
+import { ReactNode } from "react";
 
-const SearchBar = () => {
-  const { clear, refine, query, isSearchStalled } = useSearchBox();
+interface IProps {
+  children?: ReactNode;
+}
+
+const SearchBar = ({ children }: IProps) => {
+  const { clear, refine, query } = useSearchBox();
 
   const setSearchAndSave = (text?: string) => {
     const searchTerm = (text && text.trim()) || "";
@@ -23,23 +28,13 @@ const SearchBar = () => {
   };
 
   return (
-    <>
-      <SearchBox
-        placeholder="search here"
-        value={query}
-        onClear={onClear}
-        onSearch={onSearch}
-        onChange={(_e, value) => onChange(value)}
-      />
-      {isSearchStalled && (
-        <Spinner
-          label="Loading"
-          labelPosition="right"
-          size={SpinnerSize.xSmall}
-          styles={{ root: { justifyContent: "left", marginTop: "4px" } }}
-        />
-      )}
-    </>
+    <SearchBox
+      placeholder="search here"
+      value={query}
+      onClear={onClear}
+      onSearch={onSearch}
+      onChange={(_e, value) => onChange(value)}
+    />
   );
 };
 

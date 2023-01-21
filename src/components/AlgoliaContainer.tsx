@@ -1,6 +1,6 @@
 import algoliasearch from "algoliasearch";
 import { InstantSearch } from "react-instantsearch-hooks-web";
-import { Hits } from "./Hits";
+import { Layout } from "./Layout";
 import { history } from "instantsearch.js/es/lib/routers";
 import simple from "../lib/simple";
 import { VirtualSortBy } from "./virtual/VirtualSortBy";
@@ -22,8 +22,10 @@ export const AlgoliaContainer = ({ index }: IProps) => {
 
   return (
     <InstantSearch indexName={index} searchClient={searchClient} routing={routing}>
+      {/* Add virtualised date filter dropdowns */}
+      {/* Add virtualised refinement list */}
       <VirtualSortBy sortOptions={sortOptions} />
-      <Hits index={index} />
+      <Layout index={index} />
     </InstantSearch>
   );
 };
