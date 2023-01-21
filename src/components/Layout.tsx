@@ -1,9 +1,10 @@
+import { useState } from "react";
 import { useHits } from "react-instantsearch-hooks-web";
 import { Header } from "./Header";
-import { SideBar } from "./SideBar";
-import "./layout.css";
+import { FiltersSideBar } from "./FiltersSideBar";
 import SearchBar from "./SearchBar";
 import { FiltersToggle } from "./FiltersToggle";
+import "./layout.css";
 
 interface IProps {
   index: string;
@@ -14,14 +15,16 @@ export const Layout = (props: IProps) => {
 
   const hits = useHits();
 
+  const [showFilters, setShowFilters] = useState(true);
+
   return (
     <div>
       <Header section={index} hitCount={hits.results?.nbHits || 0}>
         <SearchBar />
-        <FiltersToggle />
+        <FiltersToggle showFilters={showFilters} setShowFilters={setShowFilters} />
       </Header>
       <main className="main">
-        <SideBar index={index} />
+        {showFilters && <FiltersSideBar index={index} />}
         <div className="hits-container">
           {hits.hits.map((hit: any, index) => {
             return (

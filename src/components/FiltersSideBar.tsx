@@ -1,13 +1,13 @@
 import { DynamicWidgets } from "react-instantsearch-hooks-web";
 import Facet from "./Facet";
 import { SortByDropDown } from "./SortByDropDown";
-import "./sidebar.css";
+import "./filtersSideBar.css";
 
 interface IProps {
   index: string;
 }
 
-export const SideBar = ({ index }: IProps) => {
+export const FiltersSideBar = ({ index }: IProps) => {
   return (
     <aside className="aside">
       <SortByDropDown index={index} />
