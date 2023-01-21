@@ -2,15 +2,15 @@ import { Link } from "@fluentui/react-components";
 import "./nav.css";
 
 interface IProps {
-  sections: string[];
+  indexes: string[];
 }
-export const NavMenu = ({ sections }: IProps) => {
+export const NavMenu = ({ indexes }: IProps) => {
   return (
     <div className="links-container">
-      {sections.map(section => {
+      {indexes.map(index => {
         return (
-          <Link key={`link-${section}`} href={`${section}`}>
-            {section}
+          <Link key={`link-${index}`} href={`${index}`}>
+            {index}
           </Link>
         );
       })}

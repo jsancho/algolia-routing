@@ -3,6 +3,8 @@ import { InstantSearch } from "react-instantsearch-hooks-web";
 import { Hits } from "./Hits";
 import { history } from "instantsearch.js/es/lib/routers";
 import simple from "../lib/simple";
+import { VirtualSortBy } from "./virtual/VirtualSortBy";
+import { getSortItems } from "../data/getSortItems";
 
 interface IProps {
   index: string;
@@ -16,10 +18,12 @@ const routing = {
 };
 
 export const AlgoliaContainer = ({ index }: IProps) => {
+  const sortOptions = getSortItems(index);
+
   return (
     <InstantSearch indexName={index} searchClient={searchClient} routing={routing}>
-      {/* <Configure index={indexName} /> */}
-      <Hits section={index} />
+      <VirtualSortBy sortOptions={sortOptions} />
+      <Hits index={index} />
     </InstantSearch>
   );
 };

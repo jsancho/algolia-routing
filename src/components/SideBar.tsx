@@ -1,31 +1,16 @@
-import { DynamicWidgets, SortBy } from "react-instantsearch-hooks-web";
+import { DynamicWidgets } from "react-instantsearch-hooks-web";
 import Facet from "./Facet";
+import { SortByDropDown } from "./SortByDropDown";
 import "./sidebar.css";
 
 interface IProps {
-  section: string;
+  index: string;
 }
 
-export const SideBar = ({ section }: IProps) => {
-  const getSortItems = (index: string) => {
-    return [
-      { label: "Relevance", value: index },
-      {
-        label: "Priority (asc)",
-        value: `${index}_priority_asc`
-      },
-      {
-        label: "Priority (desc)",
-        value: `${index}_priority_desc`
-      }
-    ];
-  };
-
-  const sortItems = getSortItems(section);
-
+export const SideBar = ({ index }: IProps) => {
   return (
     <aside className="aside">
-      <SortBy items={sortItems} />
+      <SortByDropDown index={index} />
       <DynamicWidgets>
         <Facet title="Status" attribute={"status"} />
         <Facet title="Model" attribute={"model"} />

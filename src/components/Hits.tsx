@@ -3,19 +3,19 @@ import "./hits.css";
 import { Header } from "./Header";
 import { SideBar } from "./SideBar";
 interface IProps {
-  section: string;
+  index: string;
 }
 
 export const Hits = (props: IProps) => {
-  const { section } = props;
+  const { index } = props;
 
   const hits = useHits();
 
   return (
     <div>
-      <Header section={section} hitCount={hits.results?.nbHits || 0} />
+      <Header section={index} hitCount={hits.results?.nbHits || 0} />
       <main className="main">
-        <SideBar section={section} />
+        <SideBar index={index} />
         <div className="hits-container">
           {hits.hits.map((hit: any, index) => {
             return (
