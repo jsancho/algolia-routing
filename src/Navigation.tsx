@@ -1,7 +1,7 @@
 import { Navigate, Route, Routes } from "react-router-dom";
-import { NavMenu } from "./components/NavMenu";
-import { AlgoliaContainer } from "./components/AlgoliaContainer";
-import "./App.css";
+import { NavMenu } from "./components/layout/NavMenu";
+import { AlgoliaContainer } from "./AlgoliaContainer";
+import "./navigation.css";
 
 const indexes = ["stays", "workjobs"];
 

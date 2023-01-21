@@ -1,10 +1,10 @@
 import algoliasearch from "algoliasearch";
+import simple from "./lib/simple";
 import { InstantSearch } from "react-instantsearch-hooks-web";
-import { Layout } from "./Layout";
+import { Layout } from "./components/layout/Layout";
 import { history } from "instantsearch.js/es/lib/routers";
-import simple from "../lib/simple";
-import { VirtualSortBy } from "./virtual/VirtualSortBy";
-import { getSortItems } from "../data/getSortItems";
+import { VirtualSortBy } from "./components/virtual/VirtualSortBy";
+import { getSortItems } from "./data/getSortItems";
 
 interface IProps {
   index: string;

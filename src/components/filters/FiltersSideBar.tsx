@@ -1,6 +1,6 @@
 import { DynamicWidgets } from "react-instantsearch-hooks-web";
+import { SortByDropDown } from "../sortBy/SortByDropDown";
 import Facet from "./Facet";
-import { SortByDropDown } from "./SortByDropDown";
 import "./filtersSideBar.css";
 
 interface IProps {
