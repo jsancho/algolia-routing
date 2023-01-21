@@ -6,7 +6,7 @@ interface IProps {
 }
 export const NavMenu = ({ indexes }: IProps) => {
   return (
-    <div className="links-container">
+    <nav className="links-container">
       {indexes.map(index => {
         return (
           <Link key={`link-${index}`} href={`${index}`}>
@@ -14,6 +14,6 @@ export const NavMenu = ({ indexes }: IProps) => {
           </Link>
         );
       })}
-    </div>
+    </nav>
   );
 };

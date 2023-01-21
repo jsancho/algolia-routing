@@ -18,7 +18,7 @@ export const Layout = (props: IProps) => {
   const [showFilters, setShowFilters] = useState(true);
 
   return (
-    <div className="container">
+    <div className="layout-container">
       <Header section={index} hitCount={hits.results?.nbHits || 0}>
         <SearchBar />
         <FiltersToggle showFilters={showFilters} setShowFilters={setShowFilters} />

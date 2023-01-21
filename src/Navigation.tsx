@@ -5,9 +5,9 @@ import "./navigation.css";
 
 const indexes = ["stays", "workjobs"];
 
-function App() {
+function Navigation() {
   return (
-    <div className="app">
+    <div className="nav-container">
       <NavMenu indexes={indexes} />
       <Routes>
         <Route path="/" element={<Navigate to={indexes[0]} />} />
@@ -25,4 +25,4 @@ function App() {
   );
 }
 
-export default App;
+export default Navigation;
