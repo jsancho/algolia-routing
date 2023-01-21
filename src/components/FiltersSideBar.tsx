@@ -9,7 +9,7 @@ interface IProps {
 
 export const FiltersSideBar = ({ index }: IProps) => {
   return (
-    <aside className="aside">
+    <aside className="filters">
       <SortByDropDown index={index} />
       {/* TODO: Add clear refinements button */}
       <DynamicWidgets>

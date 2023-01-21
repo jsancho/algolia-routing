@@ -1,3 +1,7 @@
+.container {
+  min-width: 500px;
+}
+
 .main {
   display: flex;
   flex-direction: row;
@@ -11,6 +15,7 @@
 }
 
 .hits-container {
+  flex: auto;
   min-width: 320px;
 }
 
