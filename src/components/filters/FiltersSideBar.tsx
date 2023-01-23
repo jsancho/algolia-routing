@@ -2,9 +2,9 @@ import { DynamicWidgets } from "react-instantsearch-hooks-web";
 import { SortByDropDown } from "components/filters/sortBy/SortByDropDown";
 import { DateFilters } from "./dates/DateFilters";
 import RefinementList from "./refinements/RefinementList";
-import "./filters.css";
 import { ClearRefinements } from "./refinements/ClearRefinements";
 import { Divider } from "@fluentui/react-components";
+import "./filters.css";
 
 interface IProps {
   index: string;
