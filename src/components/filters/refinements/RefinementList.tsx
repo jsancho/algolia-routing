@@ -1,5 +1,4 @@
 import { Checkbox } from "@fluentui/react-components";
-import { PreviewLink16Filled } from "@fluentui/react-icons";
 import {
   useInstantSearch,
   useRefinementList,

@@ -44,18 +44,6 @@ export const DateFilters = ({ index }: IProps) => {
     setFilters(prev => ({ ...prev, timeRange }));
   };
 
-  useEffect(() => {
-    const initialFilters = `${filters.dateField}TimeStamp: ${filters.timeRange}`;
-    console.log(`initial filters ${initialFilters}`);
-
-    setIndexUiState(prev => ({
-      ...prev,
-      configure: {
-        filters: initialFilters
-      }
-    }));
-  }, []);
-
   return (
     <>
       <DateFieldDropdown
