@@ -5,13 +5,14 @@ import { useState } from "react";
 
 interface IProps {
   index: string;
+  defaultValue: string;
   onChangeDateField: (value: string) => void;
 }
 
 export const DateFieldDropdown = (props: IProps) => {
-  const { index, onChangeDateField } = props;
+  const { index, defaultValue, onChangeDateField } = props;
 
-  const [dateField, setDateField] = useState("dueDate");
+  const [dateField, setDateField] = useState(defaultValue);
   const filterableDates = getFilterableDates(index, ["dueDate", "created"]);
 
   const changeDateFilter = (label?: any) => {
@@ -29,7 +30,7 @@ export const DateFieldDropdown = (props: IProps) => {
 
   const getLabelForValue = (value: string) => {
     const option = filterableDates.find(i => i.value.startsWith(value));
-    return option!.value;
+    return option!.label;
   };
 
   return (

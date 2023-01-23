@@ -2,17 +2,16 @@ import { Dropdown, Option } from "@fluentui/react-components/unstable";
 import { getFilterableTimePeriods } from "data/dataFields";
 import { TimePeriod } from "data/timeStamps";
 import { useState } from "react";
-import { useInstantSearch } from "react-instantsearch-hooks-web";
 
 interface IProps {
-  index: string;
+  defaultValue: string;
   onChangeTimePeriod: (value: TimePeriod) => void;
 }
 
 export const TimePeriodDropDown = (props: IProps) => {
-  const { index, onChangeTimePeriod } = props;
+  const { defaultValue, onChangeTimePeriod } = props;
 
-  const [timePeriod, setTimePeriod] = useState("today");
+  const [timePeriod, setTimePeriod] = useState(defaultValue);
 
   const changeTimePeriod = (label?: any) => {
     const value = getValueForLabel(label);
