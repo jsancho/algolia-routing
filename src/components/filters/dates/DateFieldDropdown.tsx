@@ -1,45 +1,42 @@
 import { Dropdown, Option } from "@fluentui/react-components/unstable";
 import { getFilterableDates } from "data/dataFields";
-import { useInstantSearch } from "react-instantsearch-hooks-web";
 import { CalendarLtr24Regular } from "@fluentui/react-icons";
+import { useState } from "react";
 
 interface IProps {
   index: string;
+  onChangeDateField: (value: string) => void;
 }
 
-export const DateFieldDropdown = ({ index }: IProps) => {
-  const { indexUiState, setIndexUiState } = useInstantSearch();
-  const { sortBy } = indexUiState;
+export const DateFieldDropdown = (props: IProps) => {
+  const { index, onChangeDateField } = props;
+
+  const [dateField, setDateField] = useState("dueDate");
+  const filterableDates = getFilterableDates(index, ["dueDate", "created"]);
 
   const changeDateFilter = (label?: any) => {
     const value = getValueForLabel(label);
-    // if (value) {
-    //   setIndexUiState(prev => ({
-    //     ...prev,
-    //     sortBy: value
-    //   }));
-    // }
+    setDateField(value);
+    onChangeDateField(value);
   };
-
-  const filterableDates = getFilterableDates(index, ["dueDate", "created"]);
 
   // bug in fluent UI v9 does not send or set the option value
   // it's currently only using the labels
   const getValueForLabel = (label?: string) => {
     const option = filterableDates.find(i => i.label === label);
-    return option?.value || index;
+    return option!.value;
   };
 
   const getLabelForValue = (value: string) => {
-    const option = filterableDates.find(i => i.value === value);
-    return option?.label || "Relevance";
+    const option = filterableDates.find(i => i.value.startsWith(value));
+    return option!.value;
   };
 
   return (
     <div className="filterWithIcon">
       <CalendarLtr24Regular />
       <Dropdown
-        defaultSelectedOptions={[getLabelForValue(sortBy || filterableDates[0].value)]}
+        defaultSelectedOptions={[getLabelForValue(dateField || filterableDates[0].value)]}
         root={{ style: { minWidth: "150px" } }}
         onOptionSelect={(_event, data) => changeDateFilter(data.optionText)}
       >

@@ -5,6 +5,7 @@ import simple from "lib/simple";
 import { Layout } from "components/layout/Layout";
 import { VirtualSortBy } from "components/filters/virtual/VirtualSortBy";
 import { getSortableItems } from "data/dataFields";
+import { VirtualDateFilters } from "components/filters/virtual/VirtualDateFilters";
 
 interface IProps {
   index: string;
@@ -22,9 +23,9 @@ export const AlgoliaContainer = ({ index }: IProps) => {
 
   return (
     <InstantSearch indexName={index} searchClient={searchClient} routing={routing}>
-      {/* Add virtualised date filter dropdowns */}
-      {/* Add virtualised refinement list */}
+      <VirtualDateFilters />
       <VirtualSortBy sortOptions={sortOptions} />
+      {/* Add virtualised refinement list */}
       <Layout index={index} />
     </InstantSearch>
   );

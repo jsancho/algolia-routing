@@ -33,7 +33,7 @@ export const getFilterableTimePeriods = (): ISortItem[] => {
   return TimePeriods.map(period => {
     return {
       label: `${startCase(period)}`,
-      value: getTimeRangeForPeriod(period)
+      value: period
     };
   });
 };

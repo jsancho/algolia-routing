@@ -1,25 +1,23 @@
 import { Dropdown, Option } from "@fluentui/react-components/unstable";
 import { getFilterableTimePeriods } from "data/dataFields";
+import { TimePeriod } from "data/timeStamps";
+import { useState } from "react";
 import { useInstantSearch } from "react-instantsearch-hooks-web";
 
 interface IProps {
   index: string;
+  onChangeTimePeriod: (value: TimePeriod) => void;
 }
 
-export const TimePeriodDropDown = ({ index }: IProps) => {
-  const { indexUiState, setIndexUiState } = useInstantSearch();
-  const { sortBy } = indexUiState;
+export const TimePeriodDropDown = (props: IProps) => {
+  const { index, onChangeTimePeriod } = props;
+
+  const [timePeriod, setTimePeriod] = useState("today");
 
   const changeTimePeriod = (label?: any) => {
     const value = getValueForLabel(label);
-
-    console.log("filtering " + value);
-    // if (value) {
-    //   setIndexUiState(prev => ({
-    //     ...prev,
-    //     sortBy: value
-    //   }));
-    // }
+    setTimePeriod(value);
+    onChangeTimePeriod(value as TimePeriod);
   };
 
   const filterableTimePeriods = getFilterableTimePeriods();
@@ -28,19 +26,19 @@ export const TimePeriodDropDown = ({ index }: IProps) => {
   // it's currently only using the labels
   const getValueForLabel = (label?: string) => {
     const option = filterableTimePeriods.find(i => i.label === label);
-    return option?.value || index;
+    return option!.value;
   };
 
   const getLabelForValue = (value: string) => {
     const option = filterableTimePeriods.find(i => i.value === value);
-    return option?.label || "Relevance";
+    return option!.label;
   };
 
   return (
     <div className="filterWithIcon">
       <DummyIcon />
       <Dropdown
-        defaultSelectedOptions={[getLabelForValue(sortBy || filterableTimePeriods[0].value)]}
+        defaultSelectedOptions={[getLabelForValue(timePeriod || filterableTimePeriods[0].value)]}
         root={{ style: { minWidth: "150px" } }}
         onOptionSelect={(_event, data) => changeTimePeriod(data.optionText)}
       >
