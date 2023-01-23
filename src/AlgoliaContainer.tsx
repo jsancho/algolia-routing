@@ -6,6 +6,7 @@ import { Layout } from "components/layout/Layout";
 import { VirtualSortBy } from "components/filters/virtual/VirtualSortBy";
 import { getSortableItems } from "data/dataFields";
 import { VirtualDateFilters } from "components/filters/virtual/VirtualDateFilters";
+import { VirtualRefinementList } from "components/filters/virtual/VirtualRefinementList";
 
 interface IProps {
   index: string;
@@ -25,7 +26,8 @@ export const AlgoliaContainer = ({ index }: IProps) => {
     <InstantSearch indexName={index} searchClient={searchClient} routing={routing}>
       <VirtualDateFilters />
       <VirtualSortBy sortOptions={sortOptions} />
-      {/* Add virtualised refinement list */}
+      <VirtualRefinementList attribute="status" />
+      <VirtualRefinementList attribute="model" />
       <Layout index={index} />
     </InstantSearch>
   );
