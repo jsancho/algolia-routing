@@ -7,7 +7,7 @@ interface IProps {
   index: string;
 }
 
-export const DateFilter = ({ index }: IProps) => {
+export const DateFieldDropdown = ({ index }: IProps) => {
   const { indexUiState, setIndexUiState } = useInstantSearch();
   const { sortBy } = indexUiState;
 

@@ -1,8 +1,8 @@
 import { DynamicWidgets } from "react-instantsearch-hooks-web";
 import { SortByDropDown } from "components/filters/sortBy/SortByDropDown";
 import Facet from "./Facet";
-import { DateFilter } from "components/filters/dates/DateFilter";
-import { TimePeriodFilter } from "components/filters/dates/TimePeriod";
+import { DateFieldDropdown } from "components/filters/dates/DateFieldDropdown";
+import { TimePeriodDropDown } from "components/filters/dates/TimePeriodDropDown";
 import "./filters.css";
 
 interface IProps {
@@ -13,8 +13,8 @@ export const FiltersSideBar = ({ index }: IProps) => {
   return (
     <aside className="sidebar">
       <div className="filters">
-        <DateFilter index={index} />
-        <TimePeriodFilter index={index} />
+        <DateFieldDropdown index={index} />
+        <TimePeriodDropDown index={index} />
         <SortByDropDown index={index} />
       </div>
       {/* TODO: Add clear refinements button */}

@@ -6,7 +6,7 @@ interface IProps {
   index: string;
 }
 
-export const TimePeriodFilter = ({ index }: IProps) => {
+export const TimePeriodDropDown = ({ index }: IProps) => {
   const { indexUiState, setIndexUiState } = useInstantSearch();
   const { sortBy } = indexUiState;
 

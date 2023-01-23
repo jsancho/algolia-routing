@@ -3,7 +3,7 @@ import { InstantSearch } from "react-instantsearch-hooks-web";
 import { history } from "instantsearch.js/es/lib/routers";
 import simple from "lib/simple";
 import { Layout } from "components/layout/Layout";
-import { VirtualSortBy } from "components/virtual/VirtualSortBy";
+import { VirtualSortBy } from "components/filters/virtual/VirtualSortBy";
 import { getSortableItems } from "data/dataFields";
 
 interface IProps {
