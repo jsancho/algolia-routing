@@ -1,0 +1,22 @@
+.sidebar {
+  border: 1px solid;
+  text-align: left;
+  padding: 10px;
+  min-width: 150px;
+  flex-direction: column;
+}
+
+.filters {
+  display: flex;
+  flex-direction: column;
+}
+
+.filters .filterWithIcon {
+  display: flex;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.filters .filterWithIcon .fui-Dropdown {
+  margin-left: 4px;
+}

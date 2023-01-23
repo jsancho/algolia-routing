@@ -4,7 +4,7 @@ import { history } from "instantsearch.js/es/lib/routers";
 import simple from "lib/simple";
 import { Layout } from "components/layout/Layout";
 import { VirtualSortBy } from "components/virtual/VirtualSortBy";
-import { getSortItems } from "data/getSortItems";
+import { getSortableItems } from "data/dataFields";
 
 interface IProps {
   index: string;
@@ -18,7 +18,7 @@ const routing = {
 };
 
 export const AlgoliaContainer = ({ index }: IProps) => {
-  const sortOptions = getSortItems(index);
+  const sortOptions = getSortableItems(index);
 
   return (
     <InstantSearch indexName={index} searchClient={searchClient} routing={routing}>

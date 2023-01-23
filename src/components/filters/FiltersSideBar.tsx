@@ -1,7 +1,9 @@
 import { DynamicWidgets } from "react-instantsearch-hooks-web";
-import { SortByDropDown } from "components/sortBy/SortByDropDown";
+import { SortByDropDown } from "components/filters/sortBy/SortByDropDown";
 import Facet from "./Facet";
-import "./filtersSideBar.css";
+import { DateFilter } from "components/filters/dates/DateFilter";
+import { TimePeriodFilter } from "components/filters/dates/TimePeriod";
+import "./filters.css";
 
 interface IProps {
   index: string;
@@ -9,8 +11,12 @@ interface IProps {
 
 export const FiltersSideBar = ({ index }: IProps) => {
   return (
-    <aside className="filters">
-      <SortByDropDown index={index} />
+    <aside className="sidebar">
+      <div className="filters">
+        <DateFilter index={index} />
+        <TimePeriodFilter index={index} />
+        <SortByDropDown index={index} />
+      </div>
       {/* TODO: Add clear refinements button */}
       <DynamicWidgets>
         <Facet title="Status" attribute={"status"} />
