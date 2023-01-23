@@ -11,38 +11,36 @@ import type { StateMapping, UiState } from "instantsearch.js/es/types";
 //   return trackedUiState;
 // }
 
-export default function simpleStateMapping<
-  TUiState extends UiState = UiState
->(): StateMapping<TUiState, TUiState> {
+export default function simpleStateMapping<TUiState extends UiState = UiState>(): StateMapping<
+  TUiState,
+  TUiState
+> {
   return {
     stateToRoute(uiState) {
       const route = Object.keys(uiState).reduce(
         (state, indexId) => ({
           ...state,
           [indexId]: {
-            ...uiState[indexId],
-            // configure: {
-            //   filters: params?.filters
-            // }
-          },
+            ...uiState[indexId]
+          }
         }),
         {} as TUiState
       );
 
-      console.log(`2 - changing url (UiState)=> ${JSON.stringify(uiState)}`);
-      console.log(`route ${JSON.stringify(route)}`);
+      // console.log(`2 - changing url (UiState)=> ${JSON.stringify(uiState)}`);
+      // console.log(`route ${JSON.stringify(route)}`);
       return route;
     },
     routeToState(routeState = {} as TUiState) {
       const result = Object.keys(routeState).reduce(
         (state, indexId) => ({
           ...state,
-          [indexId]: routeState[indexId],
+          [indexId]: routeState[indexId]
         }),
         {} as TUiState
       );
-      console.log(`0 - parsing url to state=> ${JSON.stringify(routeState)}`);
+      // console.log(`0 - parsing url to state=> ${JSON.stringify(routeState)}`);
       return result;
-    },
+    }
   };
 }
