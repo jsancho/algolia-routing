@@ -8,11 +8,12 @@ import "./filters.css";
 
 interface IProps {
   index: string;
+  showFilters: boolean;
 }
 
-export const FiltersSideBar = ({ index }: IProps) => {
+export const FiltersSideBar = ({ index, showFilters }: IProps) => {
   return (
-    <aside className="sidebar">
+    <aside className="sidebar" style={{ display: showFilters ? "block" : "none" }}>
       <div className="filters">
         <DateFilters index={index} />
         <Spacer />

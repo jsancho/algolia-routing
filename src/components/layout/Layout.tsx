@@ -24,7 +24,7 @@ export const Layout = (props: IProps) => {
         <FiltersToggle showFilters={showFilters} setShowFilters={setShowFilters} />
       </Header>
       <main className="main">
-        {showFilters && <FiltersSideBar index={index} />}
+        <FiltersSideBar index={index} showFilters={showFilters} />
         <div className="hits-container">
           {hits.hits.map((hit: any, index) => {
             return (

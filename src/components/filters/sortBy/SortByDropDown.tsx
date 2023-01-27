@@ -1,5 +1,5 @@
 import { Dropdown, Option } from "@fluentui/react-components/unstable";
-import { useInstantSearch } from "react-instantsearch-hooks-web";
+import { useSortBy } from "react-instantsearch-hooks-web";
 import { getSortableItems } from "data/dataFields";
 import { ArrowSort24Regular } from "@fluentui/react-icons";
 
@@ -8,20 +8,16 @@ interface IProps {
 }
 
 export const SortByDropDown = ({ index }: IProps) => {
-  const { indexUiState, setIndexUiState } = useInstantSearch();
-  const { sortBy } = indexUiState;
+  const sortItems = getSortableItems(index);
+
+  const { refine, currentRefinement } = useSortBy({
+    items: sortItems
+  });
 
   const changeSort = (label?: any) => {
     const value = getValueForLabel(label);
-    if (value) {
-      setIndexUiState(prev => ({
-        ...prev,
-        sortBy: value
-      }));
-    }
+    refine(value);
   };
-
-  const sortItems = getSortableItems(index);
 
   // bug in fluent UI v9 does not send or set the option value
   // it's currently only using the labels
@@ -39,7 +35,7 @@ export const SortByDropDown = ({ index }: IProps) => {
     <div className="filterWithIcon">
       <ArrowSort24Regular />
       <Dropdown
-        defaultSelectedOptions={[getLabelForValue(sortBy || index)]}
+        defaultSelectedOptions={[getLabelForValue(currentRefinement || index)]}
         root={{ style: { minWidth: "150px" } }}
         onOptionSelect={(_event, data) => changeSort(data.optionText)}
       >

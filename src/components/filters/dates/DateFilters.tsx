@@ -1,6 +1,6 @@
 import { getTimeRangeForPeriod, TimePeriod } from "data/timeStamps";
-import { useEffect, useState } from "react";
-import { useInstantSearch } from "react-instantsearch-hooks-web";
+import { useState } from "react";
+import { Configure } from "react-instantsearch-hooks-web";
 import { DateFieldDropdown } from "./DateFieldDropdown";
 import { TimePeriodDropDown } from "./TimePeriodDropDown";
 
@@ -21,28 +21,17 @@ export const DateFilters = ({ index }: IProps) => {
     dateField: defaultDateField,
     timeRange: getTimeRangeForPeriod(defaultTimePeriod)
   });
-  const { setIndexUiState } = useInstantSearch();
 
   const onChangeDateField = (dateField: string) => {
-    setIndexUiState(prev => ({
-      ...prev,
-      configure: {
-        filters: `${dateField}TimeStamp: ${filters.timeRange}`
-      }
-    }));
     setFilters(prev => ({ ...prev, dateField }));
   };
 
   const onChangeTimePeriod = (timePeriod: TimePeriod) => {
     const timeRange = getTimeRangeForPeriod(timePeriod);
-    setIndexUiState(prev => ({
-      ...prev,
-      configure: {
-        filters: `${filters.dateField}TimeStamp: ${timeRange}`
-      }
-    }));
     setFilters(prev => ({ ...prev, timeRange }));
   };
+
+  const filter = `${filters.dateField}TimeStamp: ${filters.timeRange}`;
 
   return (
     <>
@@ -55,6 +44,7 @@ export const DateFilters = ({ index }: IProps) => {
         defaultValue={defaultTimePeriod}
         onChangeTimePeriod={onChangeTimePeriod}
       />
+      <Configure filters={filter} />
     </>
   );
 };
