@@ -40,7 +40,7 @@ export const DateFilters = ({ index }: IProps) => {
     setFilters(prev => ({ ...prev, timeRange }));
   };
 
-  const filter = `${filters.dateField}TimeStamp: ${filters.timeRange}`;
+  const timeFilters = `${filters.dateField}TimeStamp: ${filters.timeRange}`;
 
   return (
     <>
@@ -53,7 +53,7 @@ export const DateFilters = ({ index }: IProps) => {
         defaultValue={defaultTimePeriod}
         onChangeTimePeriod={onChangeTimePeriod}
       />
-      <Configure filters={filter} />
+      <Configure filters={timeFilters} />
     </>
   );
 };
