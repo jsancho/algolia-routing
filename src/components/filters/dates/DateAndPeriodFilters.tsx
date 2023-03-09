@@ -13,10 +13,10 @@ interface IDateFilters {
   timeRange: string;
 }
 
-export const DateFilters = ({ index }: IProps) => {
+export const DateAndPeriodFilters = ({ index }: IProps) => {
   const { indexUiState } = useInstantSearch();
 
-  let defaultDateField = "dueDate";
+  let defaultDateField = "dueDateTimeStamp";
   let defaultTimePeriod: TimePeriod = "today";
 
   // parse the time choices from the url (if any)
@@ -40,7 +40,7 @@ export const DateFilters = ({ index }: IProps) => {
     setFilters(prev => ({ ...prev, timeRange }));
   };
 
-  const timeFilters = `${filters.dateField}TimeStamp: ${filters.timeRange}`;
+  const dateAndPeriodFilters = `${filters.dateField}: ${filters.timeRange}`;
 
   return (
     <>
@@ -53,7 +53,7 @@ export const DateFilters = ({ index }: IProps) => {
         defaultValue={defaultTimePeriod}
         onChangeTimePeriod={onChangeTimePeriod}
       />
-      <Configure filters={timeFilters} />
+      <Configure filters={dateAndPeriodFilters} />
     </>
   );
 };
