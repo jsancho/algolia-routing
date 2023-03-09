@@ -13,7 +13,7 @@ export const DateFieldDropdown = (props: IProps) => {
   const { index, defaultValue, onChangeDateField } = props;
 
   const [dateField, setDateField] = useState(defaultValue);
-  const filterableDates = getFilterableDates(index, ["dueDate", "created"]);
+  const filterableDates = getFilterableDates(index, ["dueDateTimeStamp", "createdTimeStamp"]);
 
   const changeDateFilter = (label?: any) => {
     const value = getValueForLabel(label);

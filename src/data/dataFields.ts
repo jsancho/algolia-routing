@@ -23,8 +23,8 @@ export const getSortableItems = (index: string): ISortItem[] => {
 export const getFilterableDates = (index: string, fields: string[]): ISortItem[] => {
   return fields.map(field => {
     return {
-      label: `${startCase(field)}`,
-      value: `${field}TimeStamp`
+      label: `${startCase(field.replace("TimeStamp", ""))}`,
+      value: `${field}`
     };
   });
 };

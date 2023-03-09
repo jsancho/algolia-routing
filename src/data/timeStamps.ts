@@ -53,7 +53,7 @@ export const getCurrentMonthTimeStampRange = () => {
 export const timeRangeToPeriod = (
   timeRange: string
 ): { dateField: string; timePeriod: TimePeriod } => {
-  const regex = /([a-zA-Z]+)TimeStamp:\s(\d+)\sTO\s(\d+)/g;
+  const regex = /([a-zA-Z]+TimeStamp):\s(\d+)\sTO\s(\d+)/g;
   const result = [...timeRange.matchAll(regex)][0];
   const { 1: dateField, 2: from, 3: to } = result;
 
